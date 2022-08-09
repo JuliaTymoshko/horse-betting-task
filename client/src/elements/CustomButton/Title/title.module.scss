@@ -1,0 +1,37 @@
+@import './../../../styles/variables.scss';
+@import './../../../styles/mixins.scss';
+@import './../../../styles/media.scss';
+
+.sectionTitle {
+  text-align: center;
+  text-transform: uppercase;
+  line-height: 1.25;
+  margin: 0px 0px 50px 0;
+}
+
+.title {
+  margin-bottom: 20px;
+}
+
+.highlightedText {
+  color: $c-green-bright;
+
+  &::before {
+    content: ' ';
+  }
+}
+
+.underline {
+  height: 3px;
+  margin: 0 auto;
+  background-color: $c-green-bright;
+  max-width: 300px;
+
+  @media (max-width: $bp-tablet) {
+    max-width: 200px;
+  }
+
+  @media (max-width: $bp-phone) {
+    max-width: 150px;
+  }
+}

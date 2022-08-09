@@ -1,0 +1,75 @@
+// * This styles are linked in index.scss which is linked in app.jsx and working already.
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  // border: 1px solid rgb(174, 174, 255);
+}
+
+img {
+  width: 100%;
+}
+
+body {
+  background: rgb(255, 248, 218);
+  background: linear-gradient(
+    90deg,
+    rgb(233, 233, 243) 0%,
+    rgba(255, 255, 255, 1) 49%,
+    rgb(181, 195, 219) 100%
+  );
+
+  font-family: $ff-main;
+  font-size: $fs-base;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 0 20px;
+  width: 100%;
+}
+
+.mainContent {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 70px;
+
+  @media (max-width: 940px) {
+    flex-direction: column;
+  }
+}
+
+// --------Custom Scrollbar----------------
+*::-webkit-scrollbar {
+  border-radius: 10px;
+  position: relative;
+  z-index: 999;
+  width: 8px;
+  opacity: 0.7;
+}
+
+*::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: $c-yellow-heavy;
+  border-radius: 10px;
+  outline: none;
+}

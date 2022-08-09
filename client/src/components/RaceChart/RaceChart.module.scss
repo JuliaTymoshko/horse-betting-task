@@ -1,0 +1,31 @@
+@import './../../styles/mixins.scss';
+@import './../../styles/media.scss';
+
+.horsesDashboardWrapper {
+  @include flexColumn;
+  gap: 20px;
+}
+
+.resultsPageWrapper {
+  @include flexRow;
+  align-items: flex-start;
+  gap: 40px;
+
+  @media (max-width: $bp-tablet) {
+    flex-direction: column;
+  }
+}
+
+.resultBlock {
+  border: 2px solid red;
+  width: 100%;
+}
+
+.winnerBlock {
+  border: 2px solid red;
+  width: 270px;
+
+  @media (max-width: $bp-tablet) {
+    width: 100%;
+  }
+}
