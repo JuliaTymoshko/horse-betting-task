@@ -3,9 +3,9 @@ const express = require('express');
 const http = require('http');
 const io = require('socket.io');
 const cors = require('cors');
+const path = require('path');
 
 const INTERVAL = 1000;
-// const PORT = process.env.PORT || 3002;
 const PORT = process.env.PORT || 3002;
 
 const horses = [
@@ -82,7 +82,8 @@ const socketServer = io(server, {
 
 app.get('/', function (req, res) {
   // res.sendFile(__dirname + '/build/index.html');
-  res.sendFile(__dirname + '/index.html');
+  // res.sendFile(__dirname + '/index.html');
+  res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 socketServer.on('connection', (socket) => {
