@@ -5,7 +5,7 @@ const io = require('socket.io');
 const cors = require('cors');
 
 const INTERVAL = 1000;
-const PORT = 3002;
+const PORT = 3002 || process.env.PORT;
 
 const horses = [
   {
@@ -78,7 +78,9 @@ const socketServer = io(server, {
 });
 
 app.get('/', function (req, res) {
-  res.sendFile(__dirname + '/index.html');
+  // res.sendFile(__dirname + '/index.html');
+  // res.sendFile(__dirname + '/build/index.html');
+  res.sendFile(__dirname + '/build/index.html');
 });
 
 socketServer.on('connection', (socket) => {
