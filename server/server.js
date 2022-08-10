@@ -69,6 +69,8 @@ function trackTickers(socket) {
 
 const app = express();
 app.use(cors());
+app.use(express.static('build'));
+
 const server = http.createServer(app);
 
 const socketServer = io(server, {
@@ -78,8 +80,7 @@ const socketServer = io(server, {
 });
 
 app.get('/', function (req, res) {
-  // res.sendFile(__dirname + '/index.html');
-  res.sendFile(__dirname + 'client/build/index.html');
+  res.sendFile(__dirname + '/build/index.html');
 });
 
 socketServer.on('connection', (socket) => {
