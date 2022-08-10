@@ -3,6 +3,7 @@ const express = require('express');
 const http = require('http');
 const io = require('socket.io');
 const cors = require('cors');
+const path = require('path');
 
 const INTERVAL = 1000;
 const PORT = 3002 || process.env.PORT;
@@ -69,6 +70,9 @@ function trackTickers(socket) {
 
 const app = express();
 app.use(cors());
+
+// app.use('/build', express.static(path.join(__dirname, '/build')));
+
 const server = http.createServer(app);
 
 const socketServer = io(server, {
@@ -78,9 +82,9 @@ const socketServer = io(server, {
 });
 
 app.get('/', function (req, res) {
-  // res.sendFile(__dirname + '/index.html');
-  // res.sendFile(__dirname + '/build/index.html');
   res.sendFile(__dirname + '/build/index.html');
+  // res.sendFile(path.join(__dirname, '/build/index.html'));
+  // res.sendFile(__dirname + '/index.html');
 });
 
 socketServer.on('connection', (socket) => {
