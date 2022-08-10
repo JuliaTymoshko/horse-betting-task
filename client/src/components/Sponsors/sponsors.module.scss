@@ -1,0 +1,16 @@
+@import './../../styles/media.scss';
+
+.sponsorImg {
+  max-width: 60px;
+  max-height: 70px;
+  width: 100%;
+  cursor: grab;
+
+  &::selection {
+    background-color: transparent;
+  }
+}
+
+.swiperSlide {
+  width: 100%;
+}

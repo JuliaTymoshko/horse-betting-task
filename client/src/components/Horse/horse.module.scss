@@ -1,31 +1,24 @@
 @import './../../styles/variables.scss';
 @import './../../styles/media.scss';
+@import './../../styles/mixins.scss';
 
-.wrapper {
+.horseWrapper {
   background-color: $c-white;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  @include flexRow;
+  display: flspace-between;
   gap: 15px;
   padding: 10px 25px;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
   font-family: $ff-secondary;
   box-shadow: $sh-base;
-  z-index: 100;
-
-  @media (max-width: $bp-tablet) {
-    padding: 20px 25px;
-  }
 
   @media (max-width: $bp-phone) {
-    padding: 15px 15px;
     gap: 10px;
   }
 }
 
-.title {
-  color: $c-black-text;
+.horseName {
   width: 230px;
   white-space: nowrap;
   overflow: hidden;
@@ -38,38 +31,20 @@
   }
 }
 
-.category {
-  color: $c-grey;
-  width: 180px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  font-size: $fs-base;
-
-  @media (max-width: $bp-tablet) {
-    font-size: $fs-base;
-  }
-}
-
-.distance {
-  color: $c-grey-navigation;
-  color: $c-grey-navigation;
+.horseDistance {
   background-color: $c-green-light;
   border-radius: 8px;
-  padding: 8px;
-  color: $c-black-text;
+  padding: 6px;
   width: 100px;
+  font-size: $fs-base;
+  text-align: center;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  font-size: $fs-base;
-  text-align: center;
-  @media (max-width: $bp-tablet) {
-    width: 90px;
-  }
+
   @media (max-width: $bp-phone) {
-    font-size: small;
     width: 70px;
     padding: 4px 3px;
+    font-size: $fs-small;
   }
 }

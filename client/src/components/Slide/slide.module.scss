@@ -1,0 +1,50 @@
+@import './../../styles/mixins.scss';
+@import './../../styles/variables.scss';
+
+.slide {
+  position: relative;
+  overflow: hidden;
+  min-height: 80vh;
+  margin: 0;
+}
+
+.slideImage {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  object-fit: cover;
+  left: 0;
+  pointer-events: none;
+}
+
+.slideContent {
+  @include flexColumn;
+  color: $c-white;
+  gap: 10px;
+  align-items: center;
+  position: absolute;
+  bottom: 45px;
+  right: 0;
+  left: 0;
+  text-align: center;
+}
+
+.slideButton {
+  background-color: $c-green-bright;
+  color: $c-white;
+  padding: 8px 16px;
+  border-radius: 8px;
+  @include flexRow;
+  width: fit-content;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  transition: $t-base;
+
+  &:hover {
+    color: $c-black;
+    opacity: 0.9;
+    background-color: $c-green-bright;
+  }
+}

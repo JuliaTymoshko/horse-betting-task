@@ -1,27 +1,18 @@
-import React from 'react';
+import { Component } from 'react';
 import classNames from 'classnames';
 import styles from './RaceChart.module.scss';
-import { useEffect, useState } from 'react';
 import { io } from 'socket.io-client';
 
-import Box from '@mui/material/Box';
-import Skeleton from '@mui/material/Skeleton';
+import Horse from '../Horse/Horse';
+import CustomButton from './../../elements/CustomButton/CustomButton';
+import Title from './../../elements/Title/Title';
 
-import InfoBox from '../InfoBox/InfoBox';
-import CustomButton from 'elements/CustomButton/CustomButton';
-import Title from 'elements/CustomButton/Title/Title';
-
-import ListItem from '@mui/material/ListItem';
-import ListItemText from '@mui/material/ListItemText';
-import ListItemAvatar from '@mui/material/ListItemAvatar';
-import Avatar from '@mui/material/Avatar';
-import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
-import { Divider } from '@mui/material';
+import WinnersChart from '../WinnersChart/WinnersChart';
 
 const ENDPOINT = 'http://localhost:3002';
 const TOTAL_DISTANCE = 1000;
 
-class RaceChart extends React.Component {
+class RaceChart extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -119,52 +110,24 @@ class RaceChart extends React.Component {
     const normalise = (value) => ((value - 0) * 100) / (TOTAL_DISTANCE - 0);
 
     return (
-      <section className={classNames(styles.resultsPageWrapper)}>
-        <div className={classNames(styles.resultBlock)}>
-          <Title title="Horse racing" highlightedText="now" />
-          <div className={classNames(styles.horsesDashboardWrapper)}>
-            <CustomButton
-              onClickHandler={this.startRace.bind(this)}
-              buttonText="Start Race"
-              disabled={inProgress}
-            />
+      <section>
+        <WinnersChart winnerList={finishedHorses} distance={TOTAL_DISTANCE} />
 
-            {horses.map((horse, i) => {
-              return (
-                <div key={i}>
-                  <InfoBox
-                    horseName={horse.name}
-                    horseDistance={horse.distance}
-                    value={normalise(horse.distance)}
-                  />
-                </div>
-              );
-            })}
-          </div>
-        </div>
+        <div className={classNames(styles.runningHorsesList)}>
+          <CustomButton
+            onClickHandler={this.startRace.bind(this)}
+            buttonText="Start Race"
+            disabled={inProgress}
+          />
 
-        <div className={classNames(styles.winnerBlock)}>
-          <Title title="Race" highlightedText="Results" />
-          {finishedHorses.map((winner, i) => {
+          {horses.map((horse, i) => {
             return (
-              <ListItem
+              <Horse
                 key={i}
-                className={classNames(
-                  'animate__animated',
-                  'animate__fadeInUp',
-                  'animate__faster'
-                )}
-              >
-                <ListItemAvatar>
-                  <Avatar>
-                    <EmojiEventsIcon />
-                  </Avatar>
-                </ListItemAvatar>
-                <ListItemText
-                  primary={`${i + 1} ${winner.name}`}
-                  secondary={`Race distance: ${TOTAL_DISTANCE} m`}
-                />
-              </ListItem>
+                horseName={horse.name}
+                horseDistance={horse.distance}
+                value={normalise(horse.distance)}
+              />
             );
           })}
         </div>

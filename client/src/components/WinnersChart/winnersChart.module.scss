@@ -1,0 +1,11 @@
+@import './../../styles/variables.scss';
+
+.winnersBlockWrapper {
+  margin-bottom: 30px;
+}
+
+.winnersList {
+  background-color: $c-blue-light !important;
+  border-radius: 12px !important;
+  min-height: 80px !important;
+}
