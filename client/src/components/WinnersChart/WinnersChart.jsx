@@ -1,18 +1,19 @@
 import classNames from 'classnames';
 import styles from './winnersChart.module.scss';
+import Title from '../../elements/Title/Title';
 
+// MUI
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Avatar from '@mui/material/Avatar';
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
-import Title from '../../elements/Title/Title';
 import { List } from '@mui/material';
 
 const WinnersChart = ({ winnerList, distance }) => {
   return (
     <div className={classNames(styles.winnersBlockWrapper)}>
-      <Title title="Race" highlightedText="Results" />
+      <Title title="Racing" highlightedText="Right now" />
       <List className={classNames(styles.winnersList)}>
         {winnerList.length === 0 || !winnerList ? (
           <ListItem

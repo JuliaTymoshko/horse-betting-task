@@ -29,22 +29,3 @@
   left: 0;
   text-align: center;
 }
-
-.slideButton {
-  background-color: $c-green-bright;
-  color: $c-white;
-  padding: 8px 16px;
-  border-radius: 8px;
-  @include flexRow;
-  width: fit-content;
-  cursor: pointer;
-  outline: none;
-  border: none;
-  transition: $t-base;
-
-  &:hover {
-    color: $c-black;
-    opacity: 0.9;
-    background-color: $c-green-bright;
-  }
-}

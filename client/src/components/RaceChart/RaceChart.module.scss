@@ -1,5 +1,9 @@
 @import './../../styles/mixins.scss';
 
+.raceSectionWrapper {
+  margin-bottom: 50px;
+}
+
 .runningHorsesList {
   @include flexColumn;
   gap: 20px;

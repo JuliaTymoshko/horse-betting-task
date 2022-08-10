@@ -1,6 +1,6 @@
 import classNames from 'classnames';
-import { Avatar, LinearProgress } from '@mui/material';
 import styles from './horse.module.scss';
+import { Avatar, LinearProgress } from '@mui/material';
 
 const Horse = ({ horseName, horseDistance, value }) => (
   <div

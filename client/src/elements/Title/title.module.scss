@@ -14,7 +14,7 @@
 }
 
 .highlightedText {
-  color: $c-green-bright;
+  color: $c-blue-dark;
 
   &::before {
     content: ' ';
@@ -24,7 +24,7 @@
 .underline {
   height: 3px;
   margin: 0 auto;
-  background-color: $c-green-bright;
+  background-color: $c-blue-dark;
   max-width: 300px;
 
   @media (max-width: $bp-tablet) {

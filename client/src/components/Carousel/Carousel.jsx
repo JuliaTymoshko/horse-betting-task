@@ -1,3 +1,7 @@
+import classNames from 'classnames';
+import styles from './carousel.module.scss';
+
+// Components & Utils
 import Slide from './../Slide/Slide';
 import Title from './../../elements/Title/Title';
 import news from './../../utils/swiperCards.json';
@@ -22,8 +26,8 @@ import 'swiper/modules/lazy/lazy.scss';
 
 const Carousel = () => {
   return (
-    <section>
-      <Title title="Our" highlightedText="Overview" />
+    <section className={classNames(styles.newsSectionWrapper)}>
+      <Title title="Latest" highlightedText="News" />
 
       <Swiper
         className="customSwiperWrap"

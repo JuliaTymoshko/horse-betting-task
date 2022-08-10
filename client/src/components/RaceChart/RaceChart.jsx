@@ -1,13 +1,12 @@
-import { Component } from 'react';
 import classNames from 'classnames';
-import styles from './RaceChart.module.scss';
+import styles from './raceChart.module.scss';
+import { Component } from 'react';
 import { io } from 'socket.io-client';
 
+// Components & ELements
 import Horse from '../Horse/Horse';
-import CustomButton from './../../elements/CustomButton/CustomButton';
-import Title from './../../elements/Title/Title';
-
 import WinnersChart from '../WinnersChart/WinnersChart';
+import CustomButton from './../../elements/CustomButton/CustomButton';
 
 const ENDPOINT = 'http://localhost:3002';
 const TOTAL_DISTANCE = 1000;
@@ -110,7 +109,7 @@ class RaceChart extends Component {
     const normalise = (value) => ((value - 0) * 100) / (TOTAL_DISTANCE - 0);
 
     return (
-      <section>
+      <section className={classNames(styles.raceSectionWrapper)}>
         <WinnersChart winnerList={finishedHorses} distance={TOTAL_DISTANCE} />
 
         <div className={classNames(styles.runningHorsesList)}>
